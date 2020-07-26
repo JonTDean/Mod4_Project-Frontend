@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+
 
 export default class SignUp extends React.Component{
     state = {
@@ -16,7 +16,8 @@ export default class SignUp extends React.Component{
     handleSubmit = e => {
         e.preventDefault()
         
-        axios.post(`https://pure-beyond-56209.herokuapp.com/signup`,{
+        fetch(`https://pure-beyond-56209.herokuapp.com/signup`,{
+            method: "POST",
             credentials: "include",
             headers: {
                 "Content-Type" : "application/json"

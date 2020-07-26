@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 
 export default class Profile extends React.Component{
     state = {
@@ -16,7 +15,8 @@ export default class Profile extends React.Component{
     handleSubmit = e => {
         e.preventDefault()
         
-        axios.patch(`https://pure-beyond-56209.herokuapp.com/profile`, {
+        fetch(`https://pure-beyond-56209.herokuapp.com/profile`, {
+            method: "PATCH",
             credentials: "include",
             headers: {
                 "Content-Type" : "application/json"
