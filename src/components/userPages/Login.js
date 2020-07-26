@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 
 class Login extends React.Component{
@@ -16,8 +17,7 @@ class Login extends React.Component{
     handleSubmit = e => {
         e.preventDefault()
 
-        fetch(`https://pure-beyond-56209.herokuapp.com/login`,{
-            method: "POST",
+        axios.post(`https://pure-beyond-56209.herokuapp.com/login`,{
             credentials: "include",
             headers: {
                 "Content-Type" : "application/json"

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Redirect, withRouter } from 'react-router-dom';
+import axios from 'axios';
 import '../CSS/App.css';
 import SignUp from './userPages/SignUp';
 import Login from './userPages/Login';
@@ -14,7 +15,7 @@ class App extends React.Component {
 
   // Persists the user Login
   componentDidMount(){
-    fetch(`https://pure-beyond-56209.herokuapp.com/autologin`,{
+    axios.get(`https://pure-beyond-56209.herokuapp.com/autologin`,{
       credentials: "include"
     })
     .then(resp => {
