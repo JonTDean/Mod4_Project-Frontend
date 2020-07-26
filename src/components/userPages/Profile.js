@@ -15,7 +15,7 @@ export default class Profile extends React.Component{
     handleSubmit = e => {
         e.preventDefault()
         
-        fetch(`http://localhost:3000/profile`, {
+        fetch(`https://pure-beyond-56209.herokuapp.com/profile`, {
             method: "PATCH",
             credentials: "include",
             headers: {

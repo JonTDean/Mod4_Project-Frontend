@@ -15,7 +15,7 @@ class App extends React.Component {
 
   // Persists the user Login
   componentDidMount(){
-    fetch(`http://localhost:3000/autologin`,{
+    fetch(`https://pure-beyond-56209.herokuapp.com/autologin`,{
       credentials: "include"
     })
     .then(resp => {
@@ -46,7 +46,7 @@ class App extends React.Component {
 
   // Logout for the Current User
   handleLogout = () => {
-    fetch(`http://localhost:3000/logout`, {
+    fetch(`https://pure-beyond-56209.herokuapp.com/logout`, {
       credentials: "include"
     })
     .then(resp => resp.json())
