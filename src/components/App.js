@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Redirect, withRouter } from 'react-router-dom';
+import { Route, Redirect, withRouter } from 'react-router-dom';
 import '../CSS/App.css';
 import SignUp from './userPages/SignUp';
 import Login from './userPages/Login';
@@ -69,7 +69,8 @@ class App extends React.Component {
       <div>
         <NavBar currentUser={this.state.currentUser} handleLogout={this.handleLogout} />
         <main>
-          <switch>
+          {/* FIX FOR UNRECOGNIZED TAG https://stackoverflow.com/questions/48751919/how-can-i-suppress-the-the-tag-some-tag-is-unrecognized-in-this-browser-warn/55537927#55537927 */}
+          <switch is=" ">
             {/* For Sign Up */}
             <Route path="/signup">
               <SignUp handleLogin={this.handleLogin} />

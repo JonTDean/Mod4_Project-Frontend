@@ -14,8 +14,8 @@ const NavBar = ({ currentUser, handleLogout }) => {
 
 
             <Nav className="mr-auto">
-              <Nav.Link className="ml-3"><Link to="/profile">Profile</Link></Nav.Link>
-              <Nav.Link className="ml-3"><Link to="/game">Game</Link></Nav.Link>
+              <Nav className="ml-3"><Link to="/profile">Profile</Link></Nav>
+              <Nav className="ml-3"><Link to="/game">Game</Link></Nav>
             <Button onClick={handleLogout}>Logout</Button>
           </Nav>
           </div>
@@ -23,8 +23,8 @@ const NavBar = ({ currentUser, handleLogout }) => {
 
         ) : (
           <Nav className="mr-auto">
-            <Nav.Link className="ml-3"><Link to="/signup">Signup</Link></Nav.Link>
-            <Nav.Link className="ml-3"><Link to="/login">Login</Link></Nav.Link>
+            <Nav className="ml-3"><Link to="/signup">Signup</Link></Nav>
+            <Nav className="ml-3"><Link to="/login">Login</Link></Nav>
           </Nav>
         )}
       </Navbar>
