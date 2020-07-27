@@ -4,7 +4,7 @@ import Phaser from 'phaser';
 export default class Player extends Phaser.Physics.Arcade.Sprite {
     constructor(data) {
         let {scene,x,y,texture,frame} = data;
-        super(scene.matter.world,x,y,texture,frame);
+        super(scene.physics.world,x,y,texture,frame);
         this.scene.add.existing(this);
 
         const {Body, Bodies} = Phaser.Physics.Arcade.ArcadePhysics;
