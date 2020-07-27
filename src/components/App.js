@@ -5,6 +5,7 @@ import SignUp from './userPages/SignUp';
 import Login from './userPages/Login';
 import NavBar from './pageDefault/NavBar';
 import Profile from './userPages/Profile';
+import Welcome from './Welcome';
 
 class App extends React.Component {
 
@@ -97,7 +98,7 @@ class App extends React.Component {
 
             {/* For Index Page */}
             <Route exact path="/">
-              <h1> Please Login or Sign Up</h1>
+              <Welcome currentUser={this.state.currentUser} />
             </Route>
           </switch>
         </main>

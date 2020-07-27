@@ -1,27 +1,61 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Navbar, Nav, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const NavBar = ({ currentUser, handleLogout }) => {
   return (
-    <header>
-      <div>
-        <Link to="/home">Home</Link>
-      </div>
-      <div>
+    <div>
+
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand><Link to="/home">Project: Pure Beyond</Link></Navbar.Brand>
+
         {currentUser ? (
-          <>
-            <Link to="/profile">Profile</Link>
-            <Link to="/game">Game</Link>
-            <button onClick={handleLogout}>Logout</button>
-          </>
+          <div> 
+
+
+            <Nav className="mr-auto">
+              <Nav.Link className="ml-3"><Link to="/profile">Profile</Link></Nav.Link>
+              <Nav.Link className="ml-3"><Link to="/game">Game</Link></Nav.Link>
+            <Button onClick={handleLogout}>Logout</Button>
+          </Nav>
+          </div>
+
+
         ) : (
-            <>
-              <Link to="/signup">Signup</Link>
-              <Link to="/login">Login</Link>
-            </>
-          )}
-      </div>
-    </header>
+          <Nav className="mr-auto">
+            <Nav.Link className="ml-3"><Link to="/signup">Signup</Link></Nav.Link>
+            <Nav.Link className="ml-3"><Link to="/login">Login</Link></Nav.Link>
+          </Nav>
+        )}
+      </Navbar>
+    </div>
+
+
+    // ==========================================================
+    // NON BOOTSTRAP NAVBAR
+    // ==========================================================
+    // <nav>
+    //   <h1>Pure Beyond</h1>
+      
+    //   <div >
+    //     <div>
+    //       <Link to="/home">Home</Link>
+
+    //       {currentUser ? (
+    //         <>
+    //           <Link to="/profile">Profile</Link>
+    //           <Link to="/game">Game</Link>
+    //           <button onClick={handleLogout}>Logout</button>
+    //         </>
+    //       ) : (
+    //           <>
+    //             <Link to="/signup">Signup</Link>
+    //             <Link to="/login">Login</Link>
+    //           </>
+    //         )}
+    //     </div>
+    //   </div>
+    // </nav>
   )
 }
 
