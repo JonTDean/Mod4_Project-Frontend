@@ -34,11 +34,13 @@ export default class Profile extends React.Component{
 
     
     render() {
-        const { username, password } = this.props.currentUser
+        const { username, avatar} = this.props.currentUser
 
         return (
             <form onSubmit={this.handleSubmit}>
+            <img src={avatar} alt={username} />
             <h1>{username}'s Profile</h1>
+
 
             <label>Username</label>
             <input
