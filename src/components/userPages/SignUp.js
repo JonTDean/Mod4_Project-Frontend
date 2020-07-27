@@ -32,7 +32,7 @@ export default class SignUp extends React.Component{
     }
 
     fileSelectedHandler = e => {
-        console.log(event);
+        console.log(e);
     }
 
     render(){
