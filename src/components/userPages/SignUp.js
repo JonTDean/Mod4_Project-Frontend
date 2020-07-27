@@ -31,6 +31,10 @@ export default class SignUp extends React.Component{
         })
     }
 
+    fileSelectedHandler = e => {
+        console.log(event);
+    }
+
     render(){
         const { username, password } = this.state
 
@@ -41,6 +45,8 @@ export default class SignUp extends React.Component{
                 <input type="text" name="username" autoComplete="off" value={username} onChange={this.handleChange}/>
                 <label>Password</label>
                 <input type="password" name="password" value={password}  onChange={this.handleChange}/>
+                <label>Image</label>
+                <input type="file" onChange={this.fileSelectedHandler}/>
                 <input type="submit" value="SignUp" />
             </form>
         )
