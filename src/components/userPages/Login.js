@@ -32,7 +32,7 @@ class Login extends React.Component{
     }
 
     render(){
-        const {username, password} = this.state
+        const { username, password } = this.state
 
         return(
             <form onSubmit={this.handleSubmit}>

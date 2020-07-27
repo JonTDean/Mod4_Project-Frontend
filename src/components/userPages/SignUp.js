@@ -4,8 +4,7 @@ import React from 'react';
 export default class SignUp extends React.Component{
     state = {
         username: "",
-        password: "",
-        avatar: null
+        password: ""
     }
 
     handleChange = e => {
@@ -32,16 +31,8 @@ export default class SignUp extends React.Component{
         })
     }
 
-    fileSelectedHandler = e => {
-        // console.log(e.target.files[0]);
-        this.setState({
-            avatar: e.target.files[0]
-        })
-    }
-
     render(){
-        const { username, password, avatar} = this.state
-        console.log(avatar)
+        const { username, password } = this.state
 
         return (
             <form onSubmit={this.handleSubmit}>
@@ -50,8 +41,6 @@ export default class SignUp extends React.Component{
                 <input type="text" name="username" autoComplete="off" value={username} onChange={this.handleChange}/>
                 <label>Password</label>
                 <input type="password" name="password" value={password}  onChange={this.handleChange}/>
-                <label>Image</label>
-                <input type="file" onChange={this.fileSelectedHandler}/>
                 <input type="submit" value="SignUp" />
             </form>
         )
