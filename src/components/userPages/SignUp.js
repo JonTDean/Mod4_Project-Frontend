@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { motion } from 'framer-motion';
 
 export default class SignUp extends React.Component{
     state = {
@@ -36,16 +37,21 @@ export default class SignUp extends React.Component{
 
 
         return (
-            <div className="
+            <motion.div className="
             container
             container-table 
             bg-secondary
             text-primary
-            border 
-            rounded 
+            border-3
+            border-super
             border-primary 
             mt-5 
-            sign-up-container">
+            sign-up-container"
+            initial="out"
+            animate="in" 
+            exit="out"
+            variants={this.props.pageVariant}
+            >
                 <div className="row col-md h-25 mt-5 ml-1">
                     <h1>Please Sign Up</h1>
                 </div>
@@ -61,7 +67,7 @@ export default class SignUp extends React.Component{
                                 </Form.Text>
                             </Form.Group> */}
                             
-                            {/* UESRNAME FORM */}
+                            {/* USERNAME FORM */}
                             <Form.Group controlId="formBasicUsername">
                                 <Form.Label>Username</Form.Label>
                                 <Form.Control type="text" placeholder="Enter Username"  name="username" autoComplete="off" value={username} onChange={this.handleChange}/>
@@ -80,14 +86,16 @@ export default class SignUp extends React.Component{
                             </Form.Group>
 
                             {/* SUBMIT BUTTON */}
-                            <Button variant="primary" type="submit">
-                                Sign Up
-                            </Button>
+                            <motion.div className="signup-button-div" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+                                <Button variant="primary" type="submit">
+                                    Sign Up
+                                </Button>
+                            </motion.div>
                         </Form>
 
                     </div>
                 </div>
-            </div>
+            </motion.div>
 
  
             //=============================================

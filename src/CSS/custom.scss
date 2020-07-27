@@ -5,3 +5,36 @@ html .sign-up-container{
     min-height: 500px;
     // background-color: #F4E285;
 }
+
+html .login-container{
+    max-width: 500px;
+    min-height: 500px;
+    // background-color: #F4E285;
+}
+
+.login-button-div{
+    height: 42px;
+    max-height: 42px;
+    min-height: 42px;
+    width: 72px;
+    max-width: 72px;
+    min-width: 72px;
+}
+
+.signup-button-div{
+    height: 42px;
+    max-height: 42px;
+    min-height: 42px;
+    width: 86px;
+    max-width: 86px;
+    min-width: 86px;
+}
+
+.border-3 {
+    border-style: solid;
+    border-width: .25em !important;
+}
+
+.border-super {
+    border-radius: 1em;
+}

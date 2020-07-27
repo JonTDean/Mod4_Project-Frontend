@@ -1,9 +1,10 @@
 import React from 'react';
-import { Route, Redirect, withRouter } from 'react-router-dom';
+import { Route, Redirect, withRouter, Switch, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import '../CSS/App.css';
 import SignUp from './userPages/SignUp';
 import Login from './userPages/Login';
-import NavBar from './pageDefault/NavBar';
+import NavBar from './pageDefault/NavBar/NavBar';
 import Profile from './userPages/Profile';
 import Welcome from './Welcome';
 
@@ -12,6 +13,15 @@ class App extends React.Component {
   state = {
     currentUser: null
   }
+
+  pageVariant =  {
+    in: { 
+      opacity: 1
+     },
+    out: {
+      opacity: 0
+    }
+  };
 
   // Persists the user Login
   componentDidMount(){
@@ -64,44 +74,47 @@ class App extends React.Component {
 
   render(){
 
-    console.log("Current User:", this.state)
+    // console.log("Current User:", this.state)
     return (
       <div>
         <NavBar currentUser={this.state.currentUser} handleLogout={this.handleLogout} />
         <main>
-          {/* FIX FOR UNRECOGNIZED TAG https://stackoverflow.com/questions/48751919/how-can-i-suppress-the-the-tag-some-tag-is-unrecognized-in-this-browser-warn/55537927#55537927 */}
-          <switch is=" ">
-            {/* For Sign Up */}
-            <Route path="/signup">
-              <SignUp handleLogin={this.handleLogin} />
-            </Route>
+          <AnimatePresence exitBeforeEnter>
+            {/* FIX FOR UNRECOGNIZED TAG https://stackoverflow.com/questions/48751919/how-can-i-suppress-the-the-tag-some-tag-is-unrecognized-in-this-browser-warn/55537927#55537927 */}
+            <Switch>
+                {/* For Sign Up */}
+                <Route path="/signup">
+                  <SignUp handleLogin={this.handleLogin} pageVariant={this.pageVariant} />
+                </Route>
 
-            {/* For Login */}
-            <Route path="/login">
-              <Login handleLogin={this.handleLogin} />
-            </Route>
+                {/* For Login */}
+                <Route path="/login">
+                  <Login handleLogin={this.handleLogin} pageVariant={this.pageVariant} />
+                </Route>
 
-            {/* For Profile */}
-            <Route path="/profile">
-              {this.state.currentUser ? <Profile currentUser={this.state.currentUser} updateUser={this.updateUser} /> : <Redirect to='/' />}
-            </Route>
-            
-            {/* For Home */}
-            <Route path="/home">
-              {this.state.currentUser ? <h1> Welcome, {this.state.currentUser.username}</h1> : <Redirect to='/' />}
-            </Route>
+                {/* For Profile */}
+                <Route path="/profile">
+                  {this.state.currentUser ? <Profile currentUser={this.state.currentUser} updateUser={this.updateUser} /> : <Redirect to='/' />}
+                </Route>
+                
+                {/* For Home */}
+                <Route path="/home">
+                  {this.state.currentUser ? <Welcome currentUser={this.state.currentUser} /> : <Redirect to='/' />}
+                </Route>
 
-            {/* For Game Pages */}
-            <Route path="/game">
-              {this.state.currentUser ? <p> Game Stuff goes here</p> : <Redirect to="/login" /> }
-              {/* {this.state.currentUser ? <Game currentUser={this.state.currentUser} /> : <Redirect to='/login' />} */}
-            </Route>
+                {/* For Game Pages */}
+                <Route path="/game" >
+                  {this.state.currentUser ? <p> Game Stuff goes here</p> : <Redirect to="/login" /> }
+                  {/* {this.state.currentUser ? <Game currentUser={this.state.currentUser} /> : <Redirect to='/login' />} */}
+                </Route>
 
-            {/* For Index Page */}
-            <Route exact path="/">
-              <Welcome currentUser={this.state.currentUser} />
-            </Route>
-          </switch>
+                {/* For Index Page */}
+                <Route exact path="/">
+                  <h1> Welcome to, Project Beyond</h1>
+                </Route>
+            </Switch>
+          </AnimatePresence>
+          
         </main>
       </div>
     )

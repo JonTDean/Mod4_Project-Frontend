@@ -5,29 +5,25 @@ import { Link } from 'react-router-dom';
 const NavBar = ({ currentUser, handleLogout }) => {
   return (
     <div>
+        <Navbar bg="dark" variant="dark">
+          <Navbar.Brand><Link to="/home">Project: Pure Beyond</Link></Navbar.Brand>
 
-      <Navbar bg="dark" variant="dark">
-        <Navbar.Brand><Link to="/home">Project: Pure Beyond</Link></Navbar.Brand>
-
-        {currentUser ? (
-          <div> 
-
-
+          {currentUser ? (
+            <div> 
+              <Nav className="mr-auto">
+                <Nav className="ml-3"><Link to="/profile">Profile</Link></Nav>
+                <Nav className="ml-3"><Link to="/game">Game</Link></Nav>
+              <Button onClick={handleLogout}>Logout</Button>
+            </Nav>
+            </div>
+          ) : (
             <Nav className="mr-auto">
-              <Nav className="ml-3"><Link to="/profile">Profile</Link></Nav>
-              <Nav className="ml-3"><Link to="/game">Game</Link></Nav>
-            <Button onClick={handleLogout}>Logout</Button>
-          </Nav>
-          </div>
-
-
-        ) : (
-          <Nav className="mr-auto">
-            <Nav className="ml-3"><Link to="/signup">Signup</Link></Nav>
-            <Nav className="ml-3"><Link to="/login">Login</Link></Nav>
-          </Nav>
-        )}
-      </Navbar>
+              <Nav className="ml-3"><Link to="/signup">Signup</Link></Nav>
+              <Nav className="ml-3"><Link to="/login">Login</Link></Nav>
+            </Nav>
+          )}
+        </Navbar>
+     
     </div>
 
 
