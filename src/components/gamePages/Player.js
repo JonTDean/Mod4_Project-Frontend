@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 
 
-export default class Player extends Phaser.Physics.Matter.Sprite {
+export default class Player extends Phaser.Physics.Arcade.Sprite {
     constructor(data) {
         let {scene,x,y,texture,frame} = data;
         super(scene.matter.world,x,y,texture,frame);
