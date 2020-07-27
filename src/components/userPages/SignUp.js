@@ -4,7 +4,8 @@ import React from 'react';
 export default class SignUp extends React.Component{
     state = {
         username: "",
-        password: ""
+        password: "",
+        avatar: null
     }
 
     handleChange = e => {
@@ -15,7 +16,7 @@ export default class SignUp extends React.Component{
 
     handleSubmit = e => {
         e.preventDefault()
-        
+
         fetch(`https://pure-beyond-56209.herokuapp.com/signup`,{
             method: "POST",
             credentials: "include",
@@ -32,7 +33,10 @@ export default class SignUp extends React.Component{
     }
 
     fileSelectedHandler = e => {
-        console.log(e.target.files[0]);
+        // console.log(e.target.files[0]);
+        this.setState({
+            avatar: e.target.files[0]
+        })
     }
 
     render(){

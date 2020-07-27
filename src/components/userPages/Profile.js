@@ -3,7 +3,8 @@ import React from 'react';
 export default class Profile extends React.Component{
     state = {
         username: this.props.currentUser.username,
-        password: this.props.currentUser.password
+        password: this.props.currentUser.password,
+        avatar: this.props.currentUser.avatar
     }
 
     handleChange = e => {
@@ -53,7 +54,13 @@ export default class Profile extends React.Component{
                 name="password"
                 onChange={this.handleChange}
             />
-
+                        
+            <label>Profile Picture</label>
+            <input
+                type="file"
+                name="avatar"
+                onChange={this.handleChange}
+            />
             <input type="submit" value="Update" />
             </form>
         )
