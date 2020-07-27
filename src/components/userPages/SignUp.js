@@ -40,7 +40,8 @@ export default class SignUp extends React.Component{
     }
 
     render(){
-        const { username, password } = this.state
+        const { username, password, avatar} = this.state
+        console.log(avatar)
 
         return (
             <form onSubmit={this.handleSubmit}>
