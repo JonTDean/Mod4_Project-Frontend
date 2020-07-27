@@ -20,8 +20,8 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
     }
 
     static preload(scene){
-        scene.load.atlas('the-king', '../../assets/images/the-king.png', '../../assets/images/the-king_atlas.json');
-        scene.load.animation('the-king_anim', '../../assets/images/the-king_anim.json')
+        scene.load.atlas('the-king', 'https://project-pure-beyond.s3.amazonaws.com/images/the-king.png', 'https://project-pure-beyond.s3.amazonaws.com/images/the-king_atlas.json');
+        scene.load.animation('the-king_anim', 'https://project-pure-beyond.s3.amazonaws.com/images/the-king_anim.json')
     }
 
     get velocity() {
