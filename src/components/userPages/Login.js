@@ -33,13 +33,13 @@ class Login extends React.Component{
         })
     }
 
-    handleRenderButton(){
-        return(
-            <Button variant="primary" type="submit">
-                Login
-            </Button>
-        )
-    }
+    // handleRenderButton(){
+    //     return(
+    //         <Button variant="primary" type="submit">
+    //             Login
+    //         </Button>
+    //     )
+    // }
 
     render(){
         const { username, password } = this.state

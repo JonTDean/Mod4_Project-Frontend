@@ -15,3 +15,7 @@
 * Setup Hosted domains for frontend/backend
 
 * Setup game canvas and get MVP done by the end of today
+
+* NEED TO IMPLEMENT SAVE FUNCTIONALITY
+
+* Canvas adjust to size of window

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect, withRouter, Switch, useLocation } from 'react-router-dom';
+import { Route, Redirect, withRouter, Switch } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import '../CSS/App.css';
 import SignUp from './userPages/SignUp';
@@ -7,6 +7,7 @@ import Login from './userPages/Login';
 import NavBar from './pageDefault/NavBar/NavBar';
 import Profile from './userPages/Profile';
 import Welcome from './Welcome';
+import GameContainer from './gamePages/GameContainer'
 
 class App extends React.Component {
 
@@ -104,8 +105,8 @@ class App extends React.Component {
 
                 {/* For Game Pages */}
                 <Route path="/game" >
-                  {this.state.currentUser ? <p> Game Stuff goes here</p> : <Redirect to="/login" /> }
-                  {/* {this.state.currentUser ? <Game currentUser={this.state.currentUser} /> : <Redirect to='/login' />} */}
+                    {/* <GameContainer currentUser={this.state.currentUser} /> */}
+                  {this.state.currentUser ? <GameContainer currentUser={this.state.currentUser} /> : <Redirect to='/login' />}
                 </Route>
 
                 {/* For Index Page */}
