@@ -38,9 +38,9 @@ export default class GameContainer extends Component {
 
       render() {
         const { initialize, game } = this.state
+        
         return (
             <IonPhaser game={game} initialize={initialize} />
-            
         )
       }
 }

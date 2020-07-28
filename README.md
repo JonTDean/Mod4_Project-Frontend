@@ -24,9 +24,11 @@
 - [ ] Fix Links for /profile and /game as <Nav> <Link to=[whatever]> </Link><Nav>
 
 // ---------- 
-- [ ] Home Page Functioanlity for when a user signs in compared to when not signed in
+- [ ] Home Page Functionality for when a user signs in compared to when not signed in
 
 - [ ] Choose A Name
+
+- [ ] Make The Screen Adjust to variable Width/Height of Window
 
 - [ ] NEED TO ADD AVATAR AND IMAGE UPLOAD FUNCTIONALITY FOR SPRITES
 
