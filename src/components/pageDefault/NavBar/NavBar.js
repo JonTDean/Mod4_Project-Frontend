@@ -13,7 +13,7 @@ const NavBar = ({ currentUser, handleLogout }) => {
               <Nav className="mr-auto">
                 <Nav className="ml-3"><Link to="/profile">Profile</Link></Nav>
                 <Nav className="ml-3"><Link to="/game">Game</Link></Nav>
-              <Button onClick={handleLogout}>Logout</Button>
+              <Button onClick={handleLogout} className="ml-3">Logout</Button>
             </Nav>
             </div>
           ) : (

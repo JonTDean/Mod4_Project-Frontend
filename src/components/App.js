@@ -7,7 +7,7 @@ import Login from './userPages/Login';
 import NavBar from './pageDefault/NavBar/NavBar';
 import Profile from './userPages/Profile';
 import Welcome from './Welcome';
-import GameContainer from './gamePages/GameContainer'
+import Main from './gamePages/Main'
 
 class App extends React.Component {
 
@@ -103,14 +103,12 @@ class App extends React.Component {
                   {this.state.currentUser ? <Welcome currentUser={this.state.currentUser} /> : <Redirect to='/' />}
                 </Route>
 
-                
-              
-                
                 {/* For Game Pages */}
                 <Route path="/game" >
+
                   {/* <div className="gameContainer"> */}
-                    <GameContainer currentUser={this.state.currentUser} />
-                  {/* {this.state.currentUser ? <GameContainer currentUser={this.state.currentUser} /> : <Redirect to='/login' />} */}
+                    <Main currentUser={this.state.currentUser} />
+                  {/* {this.state.currentUser ? <Main currentUser={this.state.currentUser} /> : <Redirect to='/login' />} */}
                 
                   {/* </div>    */}
                 </Route>
