@@ -38,7 +38,7 @@ export default class GameScene extends Phaser.Scene {
     // Create the tile map
     this.map = this.make.tilemap({ key: 'map' });
     // Add the tileset Image to our map
-    this.tiles = this.map.addTilesetImage('background', 'background', 0, 0);
+    this.tiles = this.map.addTilesetImage('GC_CC_Main', 'background', 8, 8, 0, 0);
     // Create our background
     this.groundLayer = this.map.createStaticLayer('ground', this.tiles, 0, 0)
     this.blockedWallLayer = this.map.createStaticLayer("blocked-wall", this.tiles, 0, 0)
