@@ -18,8 +18,9 @@ export default class BootScene extends Phaser.Scene {
         // this.load.image('button2', 'https://project-pure-beyond.s3.amazonaws.com/TEST/images/ui/blue_button02.png');
       // load the map tileset image
     //   this.load.image('background', 'https://project-pure-beyond.s3.amazonaws.com/TEST/level/background.png');
-        // this.load.image('background', 'https://project-pure-beyond.s3.amazonaws.com/Main/Map/GC_CC_Main.png');
-        this.load.image('background', '../../../assets/level/GC_CC_Main.png');
+        this.load.image('background', 'https://project-pure-beyond.s3.amazonaws.com/Main/Map/GC_CC_Main.png');
+        // const x = this.load.image('background', '../../../assets/level/GC_CC_Main.png');
+        // console.log(x)
     }
   
     loadSpriteSheets() {
@@ -39,8 +40,9 @@ export default class BootScene extends Phaser.Scene {
     loadTileMap() {
     // map made with Tiled in JSON format
     //   this.load.tilemapTiledJSON('map', 'https://project-pure-beyond.s3.amazonaws.com/TEST/level/large_level.json');
-        // this.load.tilemapTiledJSON('map', 'https://project-pure-beyond.s3.amazonaws.com/Main/Map/character-creation-2.json');
-        this.load.tilemapTiledJSON('map', '../../../assets/level/character-creation-2.json');
+        this.load.tilemapTiledJSON('map', 'https://project-pure-beyond.s3.amazonaws.com/Main/Map/character-creation-2.json');
+        // const x = this.load.tilemapTiledJSON('map', '../../../assets/level/character-creation-2.json');
+        // console.log(x)
     }
   
     create() {

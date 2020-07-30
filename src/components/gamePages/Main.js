@@ -29,7 +29,7 @@ const gameConfig = {
     },
     scene: [
       BootScene,
-      TitleScene,
+      // TitleScene,
       // GameScene,
     ]
   };
