@@ -1,15 +1,18 @@
 import Phaser from 'phaser';
 import SCENES from '../classes/Scenes';
 import TitleScene from './TitleScene'
+import { GRAPHIC, GRAPHIC_JSONS } from '../classes/Graphics';
+
 // Handles Boot Scene
 export default class BootScene extends Phaser.Scene {
   init(){
     this.scene.key = "BootScene";
-    // console.log("In Boot Scene");
   }
 
   preload() {
-    
+    this.load.image('a', GRAPHIC.trees);
+    this.load.image('background', GRAPHIC.gc_cc);
+    this.load.tilemapTiledJSON('map', GRAPHIC_JSONS.ccJson);
   }
 
   create() {
@@ -19,7 +22,6 @@ export default class BootScene extends Phaser.Scene {
 }
 
 // export default class BootScene extends Phaser.Scene {
-
 //     init(){
 //         console.log("IN BOOTSCENE");
 //     }
@@ -62,7 +64,5 @@ export default class BootScene extends Phaser.Scene {
 //         // this.load.tilemapTiledJSON('map', 'https://project-pure-beyond.s3.amazonaws.com/Main/Map/character-creation-2.json');
 //         // this.load.tilemapTiledJSON('map', '../../../assets/level/character-creation-2.json');
 //     }
-  
- 
 //   }
   
