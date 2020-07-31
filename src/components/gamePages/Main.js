@@ -34,7 +34,7 @@ export default function Main () {
 
   return (
     <div className="App">
-            <IonPhaser game={game} initialize={initialize} />
+      <IonPhaser game={game} initialize={initialize} />
     </div>
   );
 }

@@ -96,28 +96,22 @@ class App extends React.Component {
 
                 {/* For Profile */}
                 <Route path="/profile">
-                  {this.state.currentUser ? <Profile currentUser={this.state.currentUser} updateUser={this.updateUser} /> : <Redirect to='/' />}
+                  {this.state.currentUser ? <Profile currentUser={this.state.currentUser} updateUser={this.updateUser} pageVariant={this.pageVariant} /> : <Redirect to='/' />}
                 </Route>
                 
                 {/* For Home */}
                 <Route path="/home">
-                  {this.state.currentUser ? <Welcome currentUser={this.state.currentUser} /> : <Redirect to='/' />}
+                  <Welcome currentUser={this.state.currentUser} />
                 </Route>
 
                 {/* For Game Pages */}
                 <Route path="/game" >
-
-                  {/* <div className="gameContainer"> */}
-                  
-                    {/* <Main currentUser={this.state.currentUser} /> */}
                   {this.state.currentUser ? <Main currentUser={this.state.currentUser} /> : <Redirect to='/login' />}
-                
-                  {/* </div>    */}
                 </Route>
 
                 {/* For Index Page */}
                 <Route exact path="/">
-                  <h1> Welcome to, Project Beyond</h1>
+                  <Welcome currentUser={this.state.currentUser} pageVariant={this.pageVariant} />
                 </Route>
             </Switch>
           </AnimatePresence>

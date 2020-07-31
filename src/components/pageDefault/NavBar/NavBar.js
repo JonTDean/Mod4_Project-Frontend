@@ -1,23 +1,33 @@
 import React from 'react';
-import { Navbar, Nav, Button } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const NavBar = ({ currentUser, handleLogout }) => {
   return (
     <div>
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand><Link to="/home">Project: Pure Beyond</Link></Navbar.Brand>
+        <Navbar bg="dark" variant="dark" className="d-flex justify-content-center">
+          <Navbar.Brand><Link to="/home">Overworld</Link></Navbar.Brand>
 
           {currentUser ? (
-            <div> 
-              <Nav className="mr-auto">
-                <Nav className="ml-3"><Link to="/profile">Profile</Link></Nav>
-                <Nav className="ml-3"><Link to="/game">Game</Link></Nav>
-              <Button onClick={handleLogout} className="ml-3">Logout</Button>
+            <Nav className="ml-auto">
+              <div className="container border border-primary rounded-top">
+                <Link className="nav-link text-primary" to="/game">
+                  <Nav className="ml-3">Play Game</Nav>
+                </Link>
+              </div>
+              <div className="container border border-primary rounded-top ml-1">
+                <Link className="nav-link text-primary text-center" to="/profile">
+                  <Nav className="ml-3">Edit Profile</Nav>
+                </Link>
+              </div>
+              <div className="container border border-primary rounded-top ml-1">
+                <Link className="nav-link text-primary text-center" onClick={handleLogout} to='/'>
+                  <Nav className="ml-3">Logout</Nav>
+                </Link>
+              </div>
             </Nav>
-            </div>
           ) : (
-            <Nav className="mr-auto">
+            <Nav className="ml-auto">
               <Nav className="ml-3"><Link to="/signup">Signup</Link></Nav>
               <Nav className="ml-3"><Link to="/login">Login</Link></Nav>
             </Nav>

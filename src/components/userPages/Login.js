@@ -86,17 +86,6 @@ class Login extends React.Component{
                     </div>
                 </div>
             </motion.div>
-            //=============================================
-            // NON BOOTSTRAP
-            //=============================================
-            // <form onSubmit={this.handleSubmit}>
-            //     <h1>Login</h1>
-            //     <label>Username</label>
-            //     <input type="text" name="username" autoComplete="off" value={username} onChange={this.handleChange} />
-            //     <label>Password</label>
-            //     <input type="password" name="password" value={password} onChange={this.handleChange} autoComplete="current-password" />
-            //     <input type="submit" value="Login" />
-            // </form>
         )
     }
 }

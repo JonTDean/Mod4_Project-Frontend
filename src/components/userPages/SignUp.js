@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 export default class SignUp extends React.Component{
     state = {
         username: "",
-        password: ""
+        password: "",
     }
 
     handleChange = e => {
@@ -14,8 +14,20 @@ export default class SignUp extends React.Component{
         })
     }
 
+    handleAccountCreate = e => {
+        this.handleCharacterCreate(e)
+        this.handleSubmit(e)
+    }
+
     handleCharacterCreate = e => {
-        let randomNum = Math.floor(Math.random() * 10) + 1  
+        e.preventDefault()
+        const hpStat = Math.floor(Math.random() * 100) + 1
+        const mpStat = Math.floor(Math.random() * 100) + 1
+        const physStat = Math.floor(Math.random() * 20) + 1
+        const magStat = Math.floor(Math.random() * 20) + 1
+        const defStat = Math.floor(Math.random() * 10) + 1
+        const resStat = Math.floor(Math.random() * 10) + 1
+        const luckStat = Math.floor(Math.random() * 4) + 1 
 
         fetch(`https://pure-beyond-56209.herokuapp.com/character_creation`,{
             method: "POST",
@@ -25,12 +37,13 @@ export default class SignUp extends React.Component{
             },          
             body: JSON.stringify({
                 name: this.state.username,
-                hp: randomNum,
-                mp: randomNum,
-                phys: randomNum,
-                mag: randomNum,
-                def: randomNum,
-                luck: randomNum,
+                hp: hpStat,
+                mp: mpStat,
+                phys: physStat,
+                mag: magStat,
+                def: defStat,
+                res: resStat,
+                luck: luckStat,
             })
         })
     }
@@ -56,8 +69,6 @@ export default class SignUp extends React.Component{
 
     render(){
         const { username, password } = this.state
-
-
         return (
             <motion.div className="
             container
@@ -79,18 +90,18 @@ export default class SignUp extends React.Component{
                 </div>
                 <div className="row mt-2 ml-2">
                     <div className="col-md-9">
-                        <Form onSubmit={this.handleSubmit, this.handleCharacterCreate}>
+                        <Form onSubmit={ this.handleAccountCreate }>
                             {/* EMAIL FORM */}
-                            {/* <Form.Group controlId="formBasicEmail">
+                            <Form.Group controlId="formCreateEmail">
                                 <Form.Label>Email address</Form.Label>
                                 <Form.Control type="email" placeholder="Enter email" />
-                                <Form.Text className="text-muted">
+                                <Form.Text className="text-info">
                                     Please Enter an E-Mail Address.
                                 </Form.Text>
-                            </Form.Group> */}
-                            
+                            </Form.Group>
+
                             {/* USERNAME FORM */}
-                            <Form.Group controlId="formBasicUsername">
+                            <Form.Group controlId="formCreateUsername">
                                 <Form.Label>Username</Form.Label>
                                 <Form.Control type="text" placeholder="Enter Username"  name="username" autoComplete="off" value={username} onChange={this.handleChange}/>
                                 <Form.Text className="text-info">
@@ -99,7 +110,7 @@ export default class SignUp extends React.Component{
                             </Form.Group>
 
                             {/* PASSWORD FORM */}
-                            <Form.Group controlId="formBasicEmail">
+                            <Form.Group controlId="formCreateEmail">
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control type="password" placeholder="Enter Password"  name="password" value={password} onChange={this.handleChange} />
                                 <Form.Text className="text-info">
@@ -118,19 +129,6 @@ export default class SignUp extends React.Component{
                     </div>
                 </div>
             </motion.div>
-
- 
-            //=============================================
-            // NON BOOTSTRAP
-            //=============================================
-            // <form onSubmit={this.handleSubmit}>
-            //     <h1>SignUp</h1>
-            //     <label>Username</label>
-            //     <input type="text" name="username" autoComplete="off" value={username} onChange={this.handleChange}/>
-            //     <label>Password</label>
-            //     <input type="password" name="password" value={password}  onChange={this.handleChange}/>
-            //     <input type="submit" value="SignUp" />
-            // </form>
         )
     }
 }
