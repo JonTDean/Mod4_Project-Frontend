@@ -108,8 +108,9 @@ class App extends React.Component {
                 <Route path="/game" >
 
                   {/* <div className="gameContainer"> */}
-                    <Main currentUser={this.state.currentUser} />
-                  {/* {this.state.currentUser ? <Main currentUser={this.state.currentUser} /> : <Redirect to='/login' />} */}
+                  
+                    {/* <Main currentUser={this.state.currentUser} /> */}
+                  {this.state.currentUser ? <Main currentUser={this.state.currentUser} /> : <Redirect to='/login' />}
                 
                   {/* </div>    */}
                 </Route>

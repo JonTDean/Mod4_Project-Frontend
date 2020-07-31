@@ -14,6 +14,27 @@ export default class SignUp extends React.Component{
         })
     }
 
+    handleCharacterCreate = e => {
+        let randomNum = Math.floor(Math.random() * 10) + 1  
+
+        fetch(`https://pure-beyond-56209.herokuapp.com/character_creation`,{
+            method: "POST",
+            credentials: "include",
+            headers: {
+                "Content-Type" : "application/json"
+            },          
+            body: JSON.stringify({
+                name: this.state.username,
+                hp: randomNum,
+                mp: randomNum,
+                phys: randomNum,
+                mag: randomNum,
+                def: randomNum,
+                luck: randomNum,
+            })
+        })
+    }
+    
     handleSubmit = e => {
         e.preventDefault()
 
@@ -31,6 +52,7 @@ export default class SignUp extends React.Component{
             this.props.handleLogin(user)
         })
     }
+
 
     render(){
         const { username, password } = this.state
@@ -57,7 +79,7 @@ export default class SignUp extends React.Component{
                 </div>
                 <div className="row mt-2 ml-2">
                     <div className="col-md-9">
-                        <Form onSubmit={this.handleSubmit}>
+                        <Form onSubmit={this.handleSubmit, this.handleCharacterCreate}>
                             {/* EMAIL FORM */}
                             {/* <Form.Group controlId="formBasicEmail">
                                 <Form.Label>Email address</Form.Label>
